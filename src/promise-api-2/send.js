@@ -5,7 +5,7 @@ async function doSendingDemo() {
     const exchangeURL = getEnvironmentVariableOrFail("AMQP_EXCHANGE_URL");
     const conn = await connect(exchangeURL);
 
-    const queueName = "neill-tasks";
+    const queueName = "bukola-tasks";
     const channel = await conn.createChannel();
     //will only create the queue if it doesn't already exist
     await channel.assertQueue(queueName, { durable: false });
@@ -28,8 +28,8 @@ doSendingDemo();
 
 function makeMessage() {
     const time = performance.now();
-    const playerName = "MysteryScholar";
-    const hitPoints = 100;
+    const playerName = "Bukola";
+    const hitPoints = 500;
     const data = { playerName, time, hitPoints };
     return JSON.stringify(data);
 }
